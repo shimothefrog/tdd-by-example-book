@@ -1,6 +1,6 @@
 import pytest
 
-from src.themoneyexample.dollar import Dollar
+from src.themoneyexample.money import Dollar, Franc
 
 
 class TestMoney:
@@ -13,3 +13,9 @@ class TestMoney:
     def test_equality(self):
         assert Dollar(5) == Dollar(5)
         assert Dollar(5) != Dollar(6)
+
+    def test_franc_multiplication(self):
+        five = Franc(5)
+
+        assert Franc(10) == five.times(2)
+        assert Franc(15) == five.times(3)
