@@ -13,5 +13,5 @@ class TestMoney:
         assert 15 == product.amount
 
     def test_equality(self):
-        assert True is Dollar(5).equals(Dollar(5))
-        assert False is Dollar(5).equals(Dollar(6))
+        assert Dollar(5) == Dollar(5)
+        assert Dollar(5) != Dollar(6)

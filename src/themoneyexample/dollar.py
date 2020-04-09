@@ -5,5 +5,14 @@ class Dollar:
     def times(self, multiplier: int) -> 'Dollar':
         return Dollar(self.amount * multiplier)
 
-    def equals(self, dollar: 'Dollar') -> bool:
-        return self.amount == dollar.amount
+    def __eq__(self, other):
+        if not isinstance(other, Dollar):
+            raise TypeError()
+
+        return self.amount == other.amount
+
+    def __ne__(self, other):
+        if not isinstance(other, Dollar):
+            raise TypeError()
+
+        return self.amount != other.amount
