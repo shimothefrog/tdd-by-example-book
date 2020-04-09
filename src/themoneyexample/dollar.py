@@ -6,13 +6,19 @@ class Dollar:
         return Dollar(self.amount * multiplier)
 
     def __eq__(self, other):
-        if not isinstance(other, Dollar):
-            raise TypeError()
+        if isinstance(other, Dollar):
+            return self.amount == other.amount
 
-        return self.amount == other.amount
+        if isinstance(other, int):
+            return self.amount == other
+
+        raise TypeError()
 
     def __ne__(self, other):
-        if not isinstance(other, Dollar):
-            raise TypeError()
+        if isinstance(other, Dollar):
+            return self.amount != other.amount
 
-        return self.amount != other.amount
+        if isinstance(other, int):
+            return self.amount != other
+
+        raise TypeError()
