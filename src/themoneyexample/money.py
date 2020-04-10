@@ -3,6 +3,9 @@ class Money:
         self._amount = amount
 
     def __eq__(self, other):
+        if type(self) != type(other):
+            return False
+
         if isinstance(other, Money):
             return self._amount == other._amount
 
@@ -12,6 +15,9 @@ class Money:
         raise TypeError()
 
     def __ne__(self, other):
+        if type(self) != type(other):
+            return True
+
         if isinstance(other, Money):
             return self._amount != other._amount
 
