@@ -2,6 +2,9 @@ class Money:
     def __init__(self, amount: int):
         self._amount = amount
 
+    def times(self, multiplier: int):
+        pass
+
     def __eq__(self, other):
         if type(self) != type(other):
             return False
@@ -25,6 +28,14 @@ class Money:
             return self._amount != other
 
         raise TypeError()
+
+    @staticmethod
+    def dollar(amount: int) -> 'Dollar':
+        return Dollar(amount)
+
+    @staticmethod
+    def franc(amount: int) -> 'Franc':
+        return Franc(amount)
 
 
 class Dollar(Money):
