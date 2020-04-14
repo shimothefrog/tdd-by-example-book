@@ -26,3 +26,6 @@ class TestMoney:
     def test_currency(self):
         assert "USD" == Money.dollar(1).currency()
         assert "CHF" == Money.franc(1).currency()
+
+    def test_different_class_equality(self):
+        assert Money(10, "CHF") == Franc(10, "CHF")
