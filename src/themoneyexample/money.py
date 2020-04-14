@@ -1,4 +1,11 @@
-class Money:
+from abc import ABC
+
+
+class Expression(ABC):
+    pass
+
+
+class Money(Expression):
     def __init__(self, amount: int, currency: str):
         self._amount = amount
         self._currency = currency
@@ -19,6 +26,12 @@ class Money:
     def __ne__(self, other):
         if isinstance(other, Money):
             return not self == other
+
+        raise TypeError()
+
+    def __add__(self, other) -> Expression:
+        if isinstance(other, Money):
+            return Money(self._amount + other._amount, self._currency)
 
         raise TypeError()
 

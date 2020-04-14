@@ -1,5 +1,6 @@
 import pytest
 
+from src.themoneyexample.bank import Bank
 from src.themoneyexample.money import Money
 
 
@@ -19,3 +20,10 @@ class TestMoney:
     def test_currency(self):
         assert "USD" == Money.dollar(1).currency()
         assert "CHF" == Money.franc(1).currency()
+
+    def test_simple_addition(self):
+        five = Money.dollar(5)
+        _sum = five + five #
+        bank = Bank()
+        reduced = bank.reduce(_sum, "USD")
+        assert Money.dollar(10) == reduced
